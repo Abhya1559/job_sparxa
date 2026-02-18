@@ -3,46 +3,10 @@ import { FaUserLarge } from "react-icons/fa6";
 import { IoMdSettings } from "react-icons/io";
 import { BsBellFill } from "react-icons/bs";
 import { IoSearchSharp } from "react-icons/io5";
-import {
-  HiOutlineCurrencyDollar,
-  HiOutlineUserGroup,
-  HiOutlineUserAdd,
-  HiOutlineShoppingCart,
-} from "react-icons/hi";
-export default function DashboardHeader() {
-  const dashboardStats = [
-    {
-      title: "Today's Moneys",
-      value: "$53,000",
-      change: "+55%",
-      positive: true,
-      icon: HiOutlineCurrencyDollar,
-    },
-    {
-      title: "Today's Users",
-      value: "2,300",
-      change: "+5%",
-      positive: true,
-      icon: HiOutlineUserGroup,
-    },
-    {
-      title: "New Clients",
-      value: "+3,020",
-      change: "-14%",
-      positive: false,
-      icon: HiOutlineUserAdd,
-    },
-    {
-      title: "Total Sales",
-      value: "$173,000",
-      change: "+8%",
-      positive: true,
-      icon: HiOutlineShoppingCart,
-    },
-  ];
 
+export default function DashboardHeader() {
   return (
-    <div className="mt-5 flex items-center justify-between">
+    <div className="mt-2 flex items-center justify-between">
       <div className="flex flex-col items-start gap-1">
         <div className="flex items-center space-x-1 text-sm text-gray-400">
           <span>Pages</span>

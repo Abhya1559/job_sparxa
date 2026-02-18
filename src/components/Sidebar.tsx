@@ -15,7 +15,8 @@ export default function Sidebar() {
           </h5>
         </div>
         <nav className="flex min-w-60 flex-col gap-1 p-2 font-sans text-base font-normal text-blue-gray-700">
-          <div
+          <a
+            href="/dashboard"
             role="button"
             className="
         group
@@ -49,7 +50,7 @@ export default function Sidebar() {
             <span className="transition-colors group-hover:text-blue-gray-900">
               Dashboard
             </span>
-          </div>
+          </a>
           <div
             role="button"
             className="
@@ -147,7 +148,8 @@ export default function Sidebar() {
             RTL
           </div>
           <h1 className="text-lg font-semibold mt-10 ">ACCOUNT PAGES</h1>
-          <div
+          <a
+            href="/profile"
             role="button"
             className="
         group
@@ -178,7 +180,7 @@ export default function Sidebar() {
               />
             </div>
             Profile
-          </div>
+          </a>
           <div
             role="button"
             className="

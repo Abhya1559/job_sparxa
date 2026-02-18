@@ -1,5 +1,6 @@
 import { ArrowRight, Code2, Globe, Laptop, Rocket } from "lucide-react";
 import Navbar from "./Navbar";
+import Footer from "./Footer";
 
 export default function Hero() {
   return (
@@ -42,7 +43,6 @@ export default function Hero() {
         </div>
       </section>
 
-      {/* --- BENTO GRID SERVICES --- */}
       <section className="py-16 md:py-24">
         <div className="container mx-auto max-w-6xl px-6">
           <div className="mb-12 md:mb-16">
@@ -55,7 +55,6 @@ export default function Hero() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {/* Custom Software - Large Card */}
             <div className="md:col-span-2 p-8 md:p-10 bg-white border border-slate-200 rounded-3xl hover:shadow-xl transition-all flex flex-col justify-between group">
               <div>
                 <div className="h-12 w-12 bg-teal-600 rounded-xl flex items-center justify-center text-white mb-6">
@@ -81,7 +80,6 @@ export default function Hero() {
               </div>
             </div>
 
-            {/* Cloud & DevOps */}
             <div className="p-8 md:p-10 bg-slate-900 text-white rounded-3xl">
               <Globe className="text-teal-400 mb-6" size={32} />
               <h3 className="text-xl md:text-2xl font-bold mb-3">
@@ -92,7 +90,6 @@ export default function Hero() {
               </p>
             </div>
 
-            {/* UI/UX Design */}
             <div className="p-8 md:p-10 bg-white border border-slate-200 rounded-3xl">
               <Laptop className="text-emerald-600 mb-6" size={32} />
               <h3 className="text-xl md:text-2xl font-bold mb-3 text-slate-900">
@@ -119,7 +116,6 @@ export default function Hero() {
         </div>
       </section>
 
-      {/* --- STATS SECTION --- */}
       <section className="py-12 md:py-20 bg-white border-y border-slate-100">
         <div className="container mx-auto max-w-6xl px-6">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
@@ -142,7 +138,6 @@ export default function Hero() {
         </div>
       </section>
 
-      {/* --- FOOTER CTA --- */}
       <footer className="py-16 md:py-24 bg-slate-50 px-6">
         <div className="container mx-auto max-w-4xl text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6 leading-tight">
@@ -164,6 +159,7 @@ export default function Hero() {
           </div>
         </div>
       </footer>
+      <Footer />
     </div>
   );
 }

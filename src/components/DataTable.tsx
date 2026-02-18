@@ -1,4 +1,3 @@
-import React from "react";
 import {
   CheckCircle2,
   MoreVertical,
@@ -104,17 +103,16 @@ const timelineItems = [
 
 export default function ProjectOrdersGrid() {
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 w-full">
-      {/* LEFT COMPONENT: Projects Table */}
+    <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-6 w-full px-2 sm:px-0">
       <Card className="lg:col-span-8 rounded-3xl border-none shadow-md bg-white overflow-hidden">
-        <CardHeader className="flex flex-row items-center justify-between pb-2">
-          <div className="space-y-1">
+        <CardHeader className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 pb-2">
+          <div>
             <CardTitle className="text-lg font-bold text-[#2D3748]">
               Projects
             </CardTitle>
             <CardDescription className="flex items-center gap-1">
               <CheckCircle2 className="w-4 h-4 text-teal-400 fill-teal-400/20" />
-              <span className="font-bold text-[#2D3748]/80 text-xs">
+              <span className="font-bold text-xs text-[#2D3748]/80">
                 30 done
               </span>
               <span className="text-xs text-[#A0AEC0]">this month.</span>
@@ -122,61 +120,60 @@ export default function ProjectOrdersGrid() {
           </div>
           <MoreVertical className="text-[#A0AEC0] cursor-pointer" size={20} />
         </CardHeader>
+
         <CardContent>
-          <div className="overflow-x-auto">
-            <table className="w-full text-left">
+          <div className="overflow-x-auto -mx-2 sm:mx-0">
+            <table className="w-full min-w-160 text-left">
               <thead>
-                <tr className="text-[10px] uppercase tracking-wider text-[#A0AEC0] border-b border-gray-50">
+                <tr className="text-[10px] uppercase tracking-wider text-[#A0AEC0] border-b">
                   <th className="pb-4 font-bold">Companies</th>
                   <th className="pb-4 font-bold">Members</th>
                   <th className="pb-4 font-bold">Budget</th>
                   <th className="pb-4 font-bold">Completion</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-gray-50">
-                {projects.map((project, i) => (
-                  <tr key={i} className="group">
+              <tbody className="divide-y">
+                {projects.map((p, i) => (
+                  <tr key={i}>
                     <td className="py-4">
                       <div className="flex items-center gap-3">
-                        <div className="w-8 h-8 rounded-lg bg-gray-50 flex items-center justify-center text-[10px] font-bold text-gray-400 border border-gray-100">
-                          {project.logo}
+                        <div className="w-8 h-8 rounded-lg bg-gray-50 flex items-center justify-center text-[10px] font-bold text-gray-400 border">
+                          {p.logo}
                         </div>
                         <span className="text-sm font-bold text-[#2D3748]">
-                          {project.name}
+                          {p.name}
                         </span>
                       </div>
                     </td>
+
                     <td className="py-4">
                       <div className="flex -space-x-3">
-                        {project.members.map((imgUrl, idx) => (
+                        {p.members.map((img, idx) => (
                           <Avatar
                             key={idx}
-                            className="w-7 h-7 border-2 border-white ring-1 ring-gray-100 shadow-sm"
+                            className="w-7 h-7 border-2 border-white shadow-sm"
                           >
-                            <AvatarImage
-                              src={imgUrl}
-                              className="object-cover"
-                            />
-                            <AvatarFallback className="text-[10px] bg-gray-100">
+                            <AvatarImage src={img} />
+                            <AvatarFallback className="text-[10px]">
                               U
                             </AvatarFallback>
                           </Avatar>
                         ))}
                       </div>
                     </td>
-                    <td className="py-4">
-                      <span className="text-xs font-bold text-[#2D3748]">
-                        {project.budget}
-                      </span>
+
+                    <td className="py-4 text-xs font-bold text-[#2D3748]">
+                      {p.budget}
                     </td>
+
                     <td className="py-4">
                       <div className="w-32 space-y-1">
                         <span className="text-xs font-bold text-[#4FD1C5]">
-                          {project.progress}%
+                          {p.progress}%
                         </span>
                         <Progress
-                          value={project.progress}
-                          className="h-1.5 bg-gray-100 [&>div]:bg-[#4FD1C5] rounded-full"
+                          value={p.progress}
+                          className="h-1.5 bg-gray-100 [&>div]:bg-[#4FD1C5]"
                         />
                       </div>
                     </td>
@@ -188,7 +185,7 @@ export default function ProjectOrdersGrid() {
         </CardContent>
       </Card>
 
-      {/* RIGHT COMPONENT: Orders Overview */}
+      {/* ORDERS TIMELINE */}
       <Card className="lg:col-span-4 rounded-3xl border-none shadow-md bg-white">
         <CardHeader className="pb-2">
           <CardTitle className="text-lg font-bold text-[#2D3748]">
@@ -199,19 +196,25 @@ export default function ProjectOrdersGrid() {
             <span className="text-[#A0AEC0]">this month.</span>
           </CardDescription>
         </CardHeader>
-        <CardContent className="space-y-6 relative pt-4 before:absolute before:left-[35px] before:top-10 before:h-[75%] before:w-[2px] before:bg-gray-100">
-          {timelineItems.map((item, idx) => (
-            <div key={idx} className="flex gap-4 relative z-10">
+
+        <CardContent
+          className="
+          relative space-y-6 pt-4
+          before:absolute before:left-5.5 sm:before:left-8.75
+          before:top-10 before:h-[75%]
+          before:w-0.5 before:bg-gray-100
+        "
+        >
+          {timelineItems.map((item, i) => (
+            <div key={i} className="flex gap-3 sm:gap-4 relative z-10">
               <div className="bg-white p-1">
                 <item.icon className={`${item.color} w-5 h-5`} />
               </div>
-              <div className="flex flex-col">
-                <span className="text-sm font-bold text-[#2D3748]">
-                  {item.title}
-                </span>
-                <span className="text-[11px] font-bold text-[#A0AEC0]">
+              <div>
+                <p className="text-sm font-bold text-[#2D3748]">{item.title}</p>
+                <p className="text-[11px] font-bold text-[#A0AEC0]">
                   {item.time}
-                </span>
+                </p>
               </div>
             </div>
           ))}

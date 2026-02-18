@@ -53,29 +53,30 @@ const projects = [
 
 export default function ProfileCard() {
   return (
-    <Card className="mx-4 mb-8 rounded-3xl border-none shadow-md bg-white">
-      <CardHeader className="pb-4">
-        <CardTitle className="text-lg font-bold text-[#2D3748]">
+    <Card className="mx-3 sm:mx-4 mb-10 rounded-3xl border-none shadow-md bg-white">
+      <CardHeader className="pb-4 px-4 sm:px-6">
+        <CardTitle className="text-base sm:text-lg font-bold text-[#2D3748]">
           Projects
         </CardTitle>
-        <CardDescription className="text-lg text-[#A0AEC0] font-medium">
+        <CardDescription className="text-sm sm:text-base text-[#A0AEC0] font-medium">
           Architects design houses
         </CardDescription>
       </CardHeader>
-      <CardContent>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+
+      <CardContent className="px-4 sm:px-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
           {projects.map((project) => (
-            <div key={project.id} className="flex flex-col gap-4 group">
+            <div key={project.id} className="flex flex-col gap-4 group h-full">
               <div className="relative overflow-hidden rounded-2xl aspect-4/3 shadow-sm">
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-110"
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-black/5" />
               </div>
 
-              <div className="flex flex-col gap-1">
+              <div className="flex flex-col gap-1 grow">
                 <span className="text-[10px] font-bold text-[#A0AEC0]">
                   Project #{project.id}
                 </span>
@@ -86,13 +87,21 @@ export default function ProfileCard() {
                   {project.description}
                 </p>
               </div>
+
               <div className="flex items-center justify-between mt-auto">
                 <Button
                   variant="outline"
-                  className="text-[10px] font-bold border-[#4FD1C5] text-[#4FD1C5] hover:bg-[#4FD1C5] hover:text-white rounded-xl h-8 px-5 transition-all"
+                  className="
+                    h-8 px-4 sm:px-5
+                    text-[10px] font-bold
+                    border-[#4FD1C5] text-[#4FD1C5]
+                    hover:bg-[#4FD1C5] hover:text-white
+                    rounded-xl transition-all
+                  "
                 >
                   VIEW PROJECT
                 </Button>
+
                 <div className="flex -space-x-2">
                   {project.members.map((url, i) => (
                     <Avatar key={i} className="w-5 h-5 border-2 border-white">
@@ -107,12 +116,21 @@ export default function ProfileCard() {
 
           <div
             role="button"
-            className="flex flex-col items-center justify-center gap-2 border-2 bo  border-gray-300 rounded-3xl group hover:border-[#4FD1C5] transition-all cursor-pointer p-6"
+            className="
+              flex flex-col items-center justify-center
+              gap-2 p-6
+              border-2 border-dashed border-gray-300
+              rounded-3xl
+              cursor-pointer
+              transition-all
+              hover:border-[#4FD1C5]
+            "
           >
-            <div className="p-3 rounded-full group-hover:bg-[#4FD1C5]/10 transition-colors">
-              <Plus className="w-6 h-6 text-[#A0AEC0] group-hover:text-[#4FD1C5]" />
+            <div className="p-3 rounded-full transition-colors bg-gray-100 hover:bg-[#4FD1C5]/10">
+              <Plus className="w-6 h-6 text-[#A0AEC0] hover:text-[#4FD1C5]" />
             </div>
-            <span className="text-lg font-bold text-[#A0AEC0] group-hover:text-[#4FD1C5]">
+
+            <span className="text-sm sm:text-base font-bold text-[#A0AEC0] hover:text-[#4FD1C5] text-center">
               Create a New Project
             </span>
           </div>
